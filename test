@@ -1,0 +1,62 @@
+#!/usr/bin/php
+<?php
+  require_once("gnu/getopt/Getopt.php");
+  require_once("gnu/getopt/Longopt.php");
+  function about() { 
+    print("test - An implementation of php-getopt\n");
+    print("Copyright (C) 2020 by Jeffrey Fulmer, et al.\n");
+    print("This is free software; see the source for copying conditions.\n");
+    print("There is NO warranty; not even for MERCHANTABILITY or FITNESS\n");
+    print("FOR A PARTICULAR PURPOSE.\n");
+    exit(0);
+  } 
+  function usage() {
+    print("test <args>\n");
+    print("     -a     / --about      About this test program.\n");
+    print("     -b val                Assign a value to 'b'\n");
+    print("     -c val                Assign a value to 'c'\n");
+    print("     -n num / --number=num Assign a numeric value to 'n'\n");
+    print("     -h     / --help       Prints this message.\n");
+    exit(0);
+  }
+  
+  $longopt = array();
+  $longopt[0] = new LongOpt("help",   NO_ARGUMENT, null, 'h');
+  $longopt[1] = new LongOpt("about",  NO_ARGUMENT, null, 'a');
+  $longopt[2] = new LongOpt("number", REQUIRED_ARGUMENT, null, 'n');
+  $getopt     = new Getopt($argv, "ab:c:n:h;", $longopt);
+  $c;
+  $arg;
+  if ($argc < 2) {
+    print("ERROR: Inadequate arguments.\n");
+    usage();
+  }
+  while (($c = $getopt->getopts()) != -1) {
+    switch($c) {
+      case 'a':
+        $arg = $getopt->getOptarg();
+        about();
+        break;
+      case 'b':
+        $arg = $getopt->getOptarg();
+        print("You picked $c with an argument of ".(($arg != null) ? $arg : "null") . "\n");
+        break;
+      case 'c':
+        $arg = $getopt->getOptarg();
+        print("You picked $c with an argument of ".(($arg != null) ? $arg : "null") . "\n");
+        break;
+      case 'n':
+        $arg = $getopt->getOptarg();
+        if (! is_numeric($arg)) {
+          print("ERROR: -n / --number requires a numeric value.");
+        }
+        print("You selected ".(($arg != null) ? $arg : "null") . " things.\n");
+        break;
+      case 'h':
+        usage();
+        break;
+      default:
+        print("getopt() returned $c\n");
+    }
+  }
+?>
