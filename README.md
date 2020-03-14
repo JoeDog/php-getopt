@@ -20,7 +20,6 @@ level as your program.
 Here's a quick example that uses both long and short options:  
 
 #!/usr/bin/php  
-<?php  
   require_once("gnu/getopt/Getopt.php");  
   require_once("gnu/getopt/Longopt.php");  
 
@@ -51,7 +50,6 @@ Here's a quick example that uses both long and short options:
       print("getopt() returned $c\n");  
     }  
   }  
-?>   
 
 Happy hacking!  
 Jeff Fulmer <jeff@joedog.org>  
