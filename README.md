@@ -18,10 +18,11 @@ all my applications. You could also place at the same directory
 level as your program.  
 
 Here's a quick example that uses both long and short options:  
-<code>
-#!/usr/bin/php <br />
-  require_once("gnu/getopt/Getopt.php");  <br />
-  require_once("gnu/getopt/Longopt.php");  <br />
+
+```php
+#!/usr/bin/php 
+  require_once("gnu/getopt/Getopt.php");  
+  require_once("gnu/getopt/Longopt.php"); 
 
   $longopt = array();  
   $longopt[0] = new LongOpt("help",  NO_ARGUMENT,       null, 'h');  
@@ -50,6 +51,6 @@ Here's a quick example that uses both long and short options:
       print("getopt() returned $c\n");  
     }  
   }  
-</code>
+```
 Happy hacking!  
 Jeff Fulmer <jeff@joedog.org>  
