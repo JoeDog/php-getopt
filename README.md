@@ -1,7 +1,7 @@
 Getopts for php command line scripts. To use these classes,  
 you'll probably probably want the php commandline utility:
 
-  $ sudo apt-get install php-cli
+  $ sudo apt-get install php-cli  
   $ sudo yum install php-cli  
 
 This is a PHP port of GNU getopt based on the 1998 Java port by  
