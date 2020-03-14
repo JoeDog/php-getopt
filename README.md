@@ -18,7 +18,7 @@ all my applications. You could also place at the same directory
 level as your program.  
 
 Here's a quick example that uses both long and short options:  
-
+<code>
 #!/usr/bin/php  
   require_once("gnu/getopt/Getopt.php");  
   require_once("gnu/getopt/Longopt.php");  
@@ -50,6 +50,6 @@ Here's a quick example that uses both long and short options:
       print("getopt() returned $c\n");  
     }  
   }  
-
+</code>
 Happy hacking!  
 Jeff Fulmer <jeff@joedog.org>  
